@@ -18,6 +18,12 @@ spec:
   stages {
     stage('go version') {
       steps {
+        container('default') {
+          sh 'env > env.txt' 
+          for (String i : readFile('env.txt').split("\r?\n")) {
+              println i
+          }
+        }
         container('golang') {
           sh 'go version'
         }
