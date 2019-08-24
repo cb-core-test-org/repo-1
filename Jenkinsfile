@@ -18,9 +18,6 @@ spec:
   stages {
     stage('go version') {
       steps {
-        container('default') {
-          sh 'env' 
-        }
         container('golang') {
           sh 'env'
           sh 'go version'
