@@ -2,6 +2,7 @@ pipeline {
   agent {
     kubernetes {
       //cloud 'kubernetes'
+      label 'bb-server-testing'
       yaml """
 apiVersion: v1
 kind: Pod
