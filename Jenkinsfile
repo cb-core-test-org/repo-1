@@ -9,7 +9,7 @@ kind: Pod
 spec:
   containers:
   - name: golang
-    image: golang:1.11.0
+    image: golang:1.11.0-alpine
     command: ['cat']
     tty: true
 """
@@ -19,12 +19,10 @@ spec:
     stage('go version') {
       steps {
         container('default') {
-          sh 'env > env.txt' 
-          for (String i : readFile('env.txt').split("\r?\n")) {
-              println i
-          }
+          sh 'env' 
         }
         container('golang') {
+          sh 'env'
           sh 'go version'
         }
       }
