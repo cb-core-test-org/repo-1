@@ -21,6 +21,7 @@ spec:
         container('golang') {
           sh 'env | sort'
           sh 'go version'
+          sh 'echo pr test'
         }
       }
     }
