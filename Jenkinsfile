@@ -22,6 +22,7 @@ spec:
           sh 'env | sort'
           sh 'go version'
           sh 'echo pr test'
+          sh 'echo pr2 test'
         }
       }
     }
