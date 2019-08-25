@@ -23,6 +23,7 @@ spec:
           sh 'go version'
           sh 'echo pr test'
           sh 'echo pr2 test'
+          sh 'echo pr3 test'
         }
       }
     }
