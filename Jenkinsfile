@@ -29,12 +29,15 @@ spec:
         APPROVAL_URL = ''
       }
       steps {
+        script {
+            APPROVAL_URL = CHANGE_URL.replace("/projects/","/rest/api/1.0/projects/").replace("/overview", "/approve")
+        }
+        container('curl') {
+          sh 'curl -u "$BB_SERVER_JENKINS_CREDS_USR:$BB_SERVER_JENKINS_CREDS_PSW" -X DELETE -H "Content-Type: application/json" $APPROVAL_URL"'
+        }
         container('golang') {
           sh 'env | sort'
           sh 'go version'
-        }
-        script {
-            APPROVAL_URL = CHANGE_URL.replace("/projects/","/rest/api/1.0/projects/").replace("/overview", "/approve")
         }
         container('curl') {
           sh 'curl -u "$BB_SERVER_JENKINS_CREDS_USR:$BB_SERVER_JENKINS_CREDS_PSW" -X POST -H "Content-Type: application/json" $APPROVAL_URL"'
