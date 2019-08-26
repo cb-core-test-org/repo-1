@@ -24,6 +24,7 @@ spec:
           sh 'echo pr test'
           sh 'echo pr2 test'
           sh 'echo pr3 test'
+          sh 'echo pr4 test'
         }
       }
     }
