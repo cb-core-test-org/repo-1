@@ -60,6 +60,7 @@ spec:
           sh 'echo pr3 test'
           sh 'echo pr4 test'
           sh 'echo pr4 test'
+          sh 'echo pr6 test'
         }
       }
     }
