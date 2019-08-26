@@ -33,6 +33,9 @@ spec:
             APPROVAL_URL = CHANGE_URL.replace("/projects/","/rest/api/1.0/projects/").replace("/overview", "/approve")
         }
         container('curl') {
+          echo '"$APPROVAL_URL"'
+        }
+        container('curl') {
           sh 'curl -u "$BB_SERVER_JENKINS_CREDS_USR:$BB_SERVER_JENKINS_CREDS_PSW" -X DELETE -H "Content-Type: application/json" "$APPROVAL_URL"'
         }
         container('golang') {
