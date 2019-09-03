@@ -61,6 +61,7 @@ spec:
           sh 'echo pr4 test'
           sh 'echo pr4 test'
           sh 'echo pr6 test'
+          sh 'not a PR test'
         }
       }
     }
